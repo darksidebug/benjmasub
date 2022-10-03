@@ -2,7 +2,7 @@ const NavData = [
     {
         "id"  : 0,
         "name": "My Profile",
-        "link": "/"
+        "link": "/benjmasub"
     },
     // {
     //     "id"  : 1,
@@ -17,22 +17,22 @@ const NavData = [
     {
         "id"  : 1,
         "name": "Projects",
-        "link": "/projects"
+        "link": "/benjmasub/projects"
     },
     {
         "id"  : 2,
         "name": "Dev Tools",
-        "link": "/devtools"
+        "link": "/benjmasub/devtools"
     },
     {
         "id"  : 3,
         "name": "About Me",
-        "link": "/about"
+        "link": "/benjmasub/about"
     },
     {
         "id"  : 4,
         "name": "Contact Me",
-        "link": "/contact"
+        "link": "/benjmasub/contact"
     },
 ];
  
