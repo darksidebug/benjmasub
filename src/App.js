@@ -75,7 +75,7 @@ const App = () => {
 					isMobileDevice		= { isMobileDevice }
 				/>
 				<Routes>
-					<Route index             element = { <Profile         isMobile = { isMobileDevice } /> } />
+					<Route index path="profile" element = { <Profile isMobile = { isMobileDevice } /> } />
 					{
 						isMobileDevice && <Route path="overview"   element = { <Overview        isMobile = { isMobileDevice } /> } />
 					}
