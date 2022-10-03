@@ -53,10 +53,15 @@ const Overview = (props) => {
                         <h3 className="pl-4 sm:pl-0 text-[0.9rem] sm:text-sm font-medium text-gray-400 tracking-[0.03rem]">October 2015 - January 2020</h3>
                     </div>
                 </div>
-                <button onClick={() => { 
-                    props.handleEventSelect(1) 
-                    props.handleCurrentIndex(1)
-                }} className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">See educational history</button>
+                {
+                    !props.isMobile ? <button onClick={() => { 
+                        props.handleEventSelect(1) 
+                        props.handleCurrentIndex(1)
+                    }} className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">See educational history</button>
+                    : <NavLink to="/education" className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">
+                        See educational history
+                    </NavLink>
+                }
             </div>
             <div className="mt-6 mb-12 mx-8 sm:mx-4 md:mx-0">
                 <h1 className="text-[1.3rem] md:text-xl font-bold dark:md:font-semibold text-gray-700 dark:text-white">Knowledge and Expertise</h1>
@@ -90,10 +95,15 @@ const Overview = (props) => {
                     })
                 }
                 </div>
-                <button onClick={() => {
-                    props.handleEventSelect(2) 
-                    props.handleCurrentIndex(2)
-                }} className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">See all expertise</button>
+                {
+                    !props.isMobile ? <button onClick={() => {
+                        props.handleEventSelect(2) 
+                        props.handleCurrentIndex(2)
+                    }} className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">See all expertise</button>
+                    : <NavLink to="/expertise" className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">
+                        See all expertise
+                    </NavLink>
+                }
             </div>
             <div className="mt-6 mb-12 mx-8 sm:mx-4 md:mx-0">
                 <h1 className="text-[1.3rem] md:text-xl font-bold dark:md:font-semibold text-gray-700 dark:text-white">Recent Work Experience</h1>
@@ -113,10 +123,16 @@ const Overview = (props) => {
                         </div>
                     </div>
                 </div>
-                <button onClick={() => {
-                    props.handleEventSelect(3) 
-                    props.handleCurrentIndex(3)
-                }} className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">See work experience history</button>
+                {
+                    !props.isMobile ? <button onClick={() => {
+                        props.handleEventSelect(3) 
+                        props.handleCurrentIndex(3)
+                    }} className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">See work experience history</button>
+                    : <NavLink to="/experience" className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">
+                        See work experience history
+                    </NavLink>
+                }
+                
             </div>
         </motion.div>
     )

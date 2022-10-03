@@ -126,7 +126,7 @@ const Profile = ( props ) => {
 							</div>
 							<div className="flex justify-center items-center mt-3 sm:mt-6">
 								<div className="flex justify-start items-center space-x-1">
-									<NavLink to="/preview/resume" className="inline-block py-2.5 px-6 rounded-md border border-blue4 text-white font-semibold bg-blue4">
+									<NavLink to="/resume" className="inline-block py-2.5 px-6 rounded-md border border-blue4 text-white font-semibold bg-blue4">
 										<span>Preview Resume</span>
 									</NavLink>
 									<a href="/Updated_Resume.pdf" filename="Updated_Resume.pdf" download="Updated_Resume.pdf" className="inline-block py-3 px-4 rounded-md border border-blue4 text-gray-600 dark:text-white font-semibold">

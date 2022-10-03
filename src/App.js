@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar";
 import Profile from "./routes/profile";
 import Projects from "./routes/projects";
-import CurriculumVitae from "./routes/vitae";
+import CurriculumVitae from "./routes/resume";
 import Education from "./routes/education";
 import Expertise from "./routes/expertise";
 import Experience from "./routes/experience";
@@ -86,7 +86,7 @@ const App = () => {
 					<Route path="devtools"   element = { <Tools           isMobile = { isMobileDevice } /> } />
 					<Route path="about"      element = { <About           isMobile = { isMobileDevice } /> } />
 					<Route path="contact"    element = { <Contact         isMobile = { isMobileDevice } /> } />
-					<Route path="vitae"      element = { <CurriculumVitae isMobile = { isMobileDevice } /> } />
+					<Route path="resume"      element = { <CurriculumVitae isMobile = { isMobileDevice } /> } />
 				</Routes>
 			</BrowserRouter>
 		</div>

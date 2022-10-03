@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import Profile from "../routes/profile";
 import Projects from "../routes/projects";
-import CurriculumVitae from "../routes/vitae";
+import CurriculumVitae from "../routes/resume";
 import Education from "../routes/education";
 import Expertise from "../routes/expertise";
 import Experience from "../routes/experience";
@@ -23,7 +23,7 @@ const AnimatorRoutes = ( props ) => {
                 <Route path="devtools"   element = { <Tools           isMobile = { props.isMobileDevice } /> } />
                 <Route path="about"      element = { <About           isMobile = { props.isMobileDevice } /> } />
                 <Route path="contact"    element = { <Contact         isMobile = { props.isMobileDevice } /> } />
-                <Route path="vitae"      element = { <CurriculumVitae isMobile = { props.isMobileDevice } /> } />
+                <Route path="resume"      element = { <CurriculumVitae isMobile = { props.isMobileDevice } /> } />
             </Routes>
         </AnimatePresence>
     );
