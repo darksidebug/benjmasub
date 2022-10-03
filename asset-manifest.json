@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/benjmasub/static/css/main.4e43f20e.css",
+    "main.js": "/benjmasub/static/js/main.6591801c.js",
+    "static/js/787.1ed0c42c.chunk.js": "/benjmasub/static/js/787.1ed0c42c.chunk.js",
+    "static/media/GISWebBasedAssetMgt.png": "/benjmasub/static/media/GISWebBasedAssetMgt.313aa379564b9dba5971.png",
+    "static/media/VOD.png": "/benjmasub/static/media/VOD.c5b9b64820f5f65162fd.png",
+    "static/media/MovieStream.jpg": "/benjmasub/static/media/MovieStream.e03a8c26e193e47f5e45.jpg",
+    "static/media/logo.png": "/benjmasub/static/media/logo.a141a0768607aee375c6.png",
+    "static/media/logo_2.png": "/benjmasub/static/media/logo_2.ed16aeb08693a30f6e00.png",
+    "static/media/Portfolio.jpg": "/benjmasub/static/media/Portfolio.f356113b178fc12ed255.jpg",
+    "static/media/portfolioV3.png": "/benjmasub/static/media/portfolioV3.dc42b5e4065e397d4e06.png",
+    "static/media/Obelisk.jpg": "/benjmasub/static/media/Obelisk.8736f5d9cf60f646b0ad.jpg",
+    "static/media/paymeshare.jpg": "/benjmasub/static/media/paymeshare.f39ba92f3c174b73ccdb.jpg",
+    "static/media/pofchat.jpg": "/benjmasub/static/media/pofchat.d006ef544e01c7e3b5fa.jpg",
+    "static/media/mssql.png": "/benjmasub/static/media/mssql.cbc17ec6a9c4b113b172.png",
+    "static/media/bg.jpg": "/benjmasub/static/media/bg.e491be832bb8fb0f16d9.jpg",
+    "static/media/sqlite.png": "/benjmasub/static/media/sqlite.83ef744d30c556a06856.png",
+    "static/media/Payroll.png": "/benjmasub/static/media/Payroll.84389213e123dbeb004b.png",
+    "static/media/MWS.png": "/benjmasub/static/media/MWS.c6dac43bd99305fd2d67.png",
+    "static/media/PPCRV.png": "/benjmasub/static/media/PPCRV.dbbc362dab03509aa66e.png",
+    "static/media/benj_profile.jpg": "/benjmasub/static/media/benj_profile.3995f9ab2d22c5ab83df.jpg",
+    "static/media/laragon.png": "/benjmasub/static/media/laragon.ce1fe372f3bfbc2dffca.png",
+    "static/media/atom.png": "/benjmasub/static/media/atom.8760b06f95c4d2388897.png",
+    "static/media/xampp.png": "/benjmasub/static/media/xampp.e051d678e12de66f1212.png",
+    "static/media/DAR-Supply.png": "/benjmasub/static/media/DAR-Supply.045a3b30c3c091ddbf1b.png",
+    "static/media/mysql.png": "/benjmasub/static/media/mysql.22219293ee752ed0ebab.png",
+    "static/media/vscode.png": "/benjmasub/static/media/vscode.1242bf4e1b7e6f2bcb2d.png",
+    "static/media/xd.png": "/benjmasub/static/media/xd.b496c3794a482b22925e.png",
+    "static/media/figma.png": "/benjmasub/static/media/figma.1b78de07c61d7238cd54.png",
+    "static/media/photoshop.png": "/benjmasub/static/media/photoshop.ea0af6f78c3367339b9c.png",
+    "index.html": "/benjmasub/index.html",
+    "main.4e43f20e.css.map": "/benjmasub/static/css/main.4e43f20e.css.map",
+    "main.6591801c.js.map": "/benjmasub/static/js/main.6591801c.js.map",
+    "787.1ed0c42c.chunk.js.map": "/benjmasub/static/js/787.1ed0c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e43f20e.css",
+    "static/js/main.6591801c.js"
+  ]
+}
