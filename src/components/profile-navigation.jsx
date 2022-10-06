@@ -1,10 +1,17 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
+import React, { useContext } from "react";
+import { Context } from "../context/ContextAPI";
 import bgImg from "../img/bg.jpg";
 import profile from "../img/benj_profile.jpg"; 
 import { Outlet, NavLink } from "react-router-dom";
 import { motion } from "framer-motion"
 
 const ProfileNavigation = ( props ) => {
+    const { 
+        isMobileDevice,
+        handleToggleSwitch, 
+        isDarkModeToggled
+    } = useContext(Context);
     return (  
         <motion.div 
             initial = {{ opacity: 0 }}
@@ -16,8 +23,8 @@ const ProfileNavigation = ( props ) => {
                 </div>
             </div>
             <div className="flex justify-center">
-                <div className={`relative -top-20 z-30 p-1.5 border-4 border-blue4 rounded-full ${ props.isMobile ? 'bg-white' : ''} dark:bg-gray-700 dark:shadow-xl`}>
-                    <div className={`overflow-hidden h-36 w-36 ${ props.isMobile ? 'border border-gray-300' : ''} rounded-full`}>
+                <div className={`relative -top-20 z-30 p-1.5 border-4 border-blue4 rounded-full ${ isMobileDevice ? 'bg-white' : ''} dark:bg-gray-700 dark:shadow-xl`}>
+                    <div className={`overflow-hidden h-36 w-36 ${ isMobileDevice ? 'border border-gray-300' : ''} rounded-full`}>
                         <img className="w-full" src={ profile } alt="Profile-Image" />
                     </div>
                 </div>
@@ -59,7 +66,7 @@ const ProfileNavigation = ( props ) => {
                         </svg>
                     </NavLink>
                     <NavLink
-                        to="/vitae"
+                        to="/resume"
                         className="absolute -right-[9.3rem] top-6 z-30 px-1.5 py-2.5 h-12 w-12 border border-gray-300 dark:border-gray-700 rounded-full dark:shadow-lg bg-white dark:bg-gray-600 text-gray-500 dark:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-5 w-5 ml-2 mb-1 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
                         strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -93,11 +100,11 @@ const ProfileNavigation = ( props ) => {
                     <label htmlFor="toggle" className="flex items-center cursor-pointer">
                         <div className="relative">
                             <input type="checkbox" id="toggle" className="sr-only" />
-                            <div className="block bg-gray-300 dark:bg-gray-500 w-14 h-8 rounded-full" onClick={ props.handleToggleSwitch }></div>
-                            <div className="hidden sm:block absolute top-1 -left-24 text-gray-600 dark:text-white font-medium">{ props.isDarkModeToggled ? "Dark Mode" : "Light Mode" }</div>
-                            <div className={`absolute left-1 top-1 ${ props.isDarkModeToggled ? "translate-x-full" : "" } transition w-6 h-6 p-1.5 rounded-full bg-white`} onClick={ props.handleToggleSwitch }>
+                            <div className="block bg-gray-300 dark:bg-gray-500 w-14 h-8 rounded-full" onClick={ handleToggleSwitch }></div>
+                            <div className="hidden sm:block absolute top-1 -left-24 text-gray-600 dark:text-white font-medium">{ isDarkModeToggled ? "Dark Mode" : "Light Mode" }</div>
+                            <div className={`absolute left-1 top-1 ${ isDarkModeToggled ? "translate-x-full" : "" } transition w-6 h-6 p-1.5 rounded-full bg-white`} onClick={ props.handleToggleSwitch }>
                                 {
-                                    props.isDarkModeToggled ? 
+                                    isDarkModeToggled ? 
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-gray-700" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" 
                                         strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>

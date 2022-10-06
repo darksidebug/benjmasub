@@ -11,6 +11,8 @@ import Contact from "./routes/contact";
 import Tools from "./routes/devtools";
 import About from "./routes/about";
 import Overview from "./routes/overview";
+import UIDesigns from "./routes/designs";
+import { Context } from "./context/ContextAPI";
 
 const App = () => {
 	const [isDarkModeToggled, setDarkMode] 		   = useState(false);
@@ -65,31 +67,41 @@ const App = () => {
 	};
 
 	return (
-		<div className="overflow-hidden">
-			<BrowserRouter>
-				<Navbar 
-					handleToggleSwitch  = { handleToggleSwitch } 
-					handleNavMenuToggle = { handleNavMenuToggle } 
-					isDarkModeToggled	= { isDarkModeToggled } 
-					isNavMenuToggled	= { isNavMenuToggled } 
-					isMobileDevice		= { isMobileDevice }
-				/>
-				<Routes>
-					<Route index element = { <Profile isMobile = { isMobileDevice } /> } />
-					{
-						isMobileDevice && <Route path="overview"   element = { <Overview        isMobile = { isMobileDevice } /> } />
-					}
-					<Route path="projects"   element = { <Projects        isMobile = { isMobileDevice } isDarkModeToggled = { isDarkModeToggled } /> } />
-					<Route path="education"  element = { <Education       isMobile = { isMobileDevice } /> } />
-					<Route path="expertise"  element = { <Expertise       isMobile = { isMobileDevice } /> } />
-					<Route path="experience" element = { <Experience      isMobile = { isMobileDevice } /> } />
-					<Route path="devtools"   element = { <Tools           isMobile = { isMobileDevice } /> } />
-					<Route path="about"      element = { <About           isMobile = { isMobileDevice } /> } />
-					<Route path="contact"    element = { <Contact         isMobile = { isMobileDevice } /> } />
-					<Route path="resume"      element = { <CurriculumVitae isMobile = { isMobileDevice } /> } />
-				</Routes>
-			</BrowserRouter>
-		</div>
+		<Context.Provider value={
+			{
+				isMobileDevice,
+				handleToggleSwitch,
+				handleNavMenuToggle,
+				isDarkModeToggled,
+				isNavMenuToggled,
+				isDarkModeToggled
+			}
+		}>
+			<div className="overflow-hidden">
+				<BrowserRouter>
+					<Navbar />
+					<Routes>
+						<Route index element = { <Profile /> } />
+						{
+							isMobileDevice && (
+							<>
+								<Route path="overview"   element = { <Overview /> } />
+								<Route path="education"  element = { <Education /> } />
+								<Route path="expertise"  element = { <Expertise /> } />
+								<Route path="experience" element = { <Experience /> } />
+							</>
+							)
+						}
+						<Route path="projects" element = { <Projects /> } />
+						<Route path="designs"  element = { <UIDesigns /> } />
+						<Route path="devtools" element = { <Tools /> } />
+						<Route path="about"    element = { <About /> } />
+						<Route path="contact"  element = { <Contact /> } />
+						<Route path="resume"   element = { <CurriculumVitae /> } />
+					</Routes>
+				</BrowserRouter>
+			</div>
+		</Context.Provider>
 	);
 }
  

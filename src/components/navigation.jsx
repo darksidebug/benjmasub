@@ -1,3 +1,5 @@
+import React, { useContext } from "react";
+import { Context } from "../context/ContextAPI";
 import light_logo from "../logo_2.png"
 import dark_logo from "../logo.png"
 import NavLinks from "./navlink";
@@ -11,13 +13,20 @@ const Navigation = ( props ) => {
 // 	useEffect(() => {
 // 		setCurrentIndex(currentIndex)
 // 	}, [currentIndex])
+	const { 
+		isMobileDevice,
+		handleNavMenuToggle,
+		isNavMenuToggled,
+		isDarkModeToggled,
+		handleToggleSwitch
+	} = useContext(Context);
 	
     return (  
         <>
             <div className="border-b border-gray-200 dark:border-gray-600">
 				<nav className="container flex justify-between items-center mx-auto px-4 md:px-0 lg:px-8 py-2">
 					<div className="overflow-hidden flex justify-start items-center">
-						<img className="w-12 md:w-14 h-auto" src={ props.isDarkModeToggled ? light_logo : dark_logo } alt="" />
+						<img className="w-12 md:w-14 h-auto" src={ isDarkModeToggled ? light_logo : dark_logo } alt="" />
 						<div className="hidden lg:flex md:justify-end md:items-center ml-16 lg:ml-16 lg:space-x-7">
 							{
 								navData.map((nav, index) => {
@@ -32,8 +41,8 @@ const Navigation = ( props ) => {
 							}
 						</div>
 						<div className={`block lg:hidden absolute top-0 left-0
-							${ props.isNavMenuToggled ? "translate-x-0 z-30" : "-translate-x-64"} px-6 pt-14 h-screen
-							${ props.isNavMenuToggled ? "w-[17rem] sm:w-72 bg-gray-700 dark:bg-gray-600 shadow-2xl" : ""} space-y-1
+							${ isNavMenuToggled ? "translate-x-0 z-30" : "-translate-x-64"} px-6 pt-14 h-screen
+							${ isNavMenuToggled ? "w-[17rem] sm:w-72 bg-gray-700 dark:bg-gray-600 shadow-2xl" : ""} space-y-1
 							transition-transform transition-slowest ease-in-out`}>
 
 							<div className="flex justify-start items center mb-10 border-b border-gray-500">
@@ -55,7 +64,6 @@ const Navigation = ( props ) => {
 							</NavLink> */}
 							<NavLinks
 								to="/"
-								handleNavMenuToggle={ props.handleNavMenuToggle }
 								text="My Profile">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" className="inline-block h-5 w-5 ml-2 mb-1 mr-3" viewBox="0 0 24 24" 
 									fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -66,7 +74,7 @@ const Navigation = ( props ) => {
 							<NavLink
 								to="/education"
 								className="block md:hidden py-2 px-4 rounded-lg text-gray-200 dark:text-gray-100 dark:hover:text-white hover:bg-blue4 font-medium"
-								onClick={ props.handleNavMenuToggle }
+								onClick={ handleNavMenuToggle }
 								text="Education">
 								<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" 
 									className="inline-block h-5 w-5 ml-2 mb-1 mr-3" viewBox="0 0 16 16">
@@ -79,7 +87,7 @@ const Navigation = ( props ) => {
 							<NavLink
 								to="/expertise"
 								className="block md:hidden py-2 px-4 rounded-lg text-gray-200 dark:text-gray-100 dark:hover:text-white hover:bg-blue4 font-medium"
-								onClick={ props.handleNavMenuToggle }
+								onClick={ handleNavMenuToggle }
 								text="Expertise"> 
 								<svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-5 w-5 ml-2 mb-1 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 								strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -90,7 +98,7 @@ const Navigation = ( props ) => {
 							<NavLink
 								to="/experience"
 								className="block md:hidden py-2 px-4 rounded-lg text-gray-200 dark:text-gray-100 dark:hover:text-white hover:bg-blue4 font-medium" 
-								onClick={ props.handleNavMenuToggle }
+								onClick={ handleNavMenuToggle }
 								text="Experience">
 								<svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-5 w-5 ml-2 mb-1 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 								strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -99,7 +107,6 @@ const Navigation = ( props ) => {
 							</NavLink>
 							<NavLinks 
 								to="/projects" 
-								handleNavMenuToggle={ props.handleNavMenuToggle }
 								text="Projects">
 								<svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-5 w-5 ml-2 mb-1 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 								strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -108,7 +115,6 @@ const Navigation = ( props ) => {
 							</NavLinks>
 							<NavLinks 
 								to="/devtools" 
-								handleNavMenuToggle={ props.handleNavMenuToggle }
 								text="Dev Tools">
 								<svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-5 w-5 ml-2 mb-1 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 								strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -117,7 +123,6 @@ const Navigation = ( props ) => {
 							</NavLinks>
 							<NavLinks 
 								to="/about" 
-								handleNavMenuToggle={ props.handleNavMenuToggle }
 								text="About Me">
 								<svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-5 w-5 ml-2 mb-1 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 								strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -128,7 +133,6 @@ const Navigation = ( props ) => {
 							</NavLinks>
 							<NavLinks 
 								to="/contact" 
-								handleNavMenuToggle={ props.handleNavMenuToggle }
 								text="Contact Me">
 								<svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-5 w-5 ml-2 mb-1 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 								strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -138,8 +142,7 @@ const Navigation = ( props ) => {
 								</svg>
 							</NavLinks>
 							<NavLinks 
-								to="/vitae" 
-								handleNavMenuToggle={ props.handleNavMenuToggle }
+								to="/vitae"
 								text="Curriculum Vitae">
 								<svg xmlns="http://www.w3.org/2000/svg" className="inline-block h-5 w-5 ml-2 mb-1 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 								strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -153,18 +156,18 @@ const Navigation = ( props ) => {
 							<label htmlFor="toggle" className="flex items-center cursor-pointer">
 								<div className="relative">
 									<input type="checkbox" id="toggle" className="sr-only" />
-									<div className="block bg-gray-300 dark:bg-gray-500 w-14 h-8 rounded-full" onClick={ props.handleToggleSwitch }></div>
+									<div className="block bg-gray-300 dark:bg-gray-500 w-14 h-8 rounded-full" onClick={ handleToggleSwitch }></div>
 									{
-										!props.isMobile ?
+										!isMobileDevice ?
 											<div className="hidden sm:block absolute top-1 -left-24 text-gray-600 dark:text-white font-medium">
-												{ props.isDarkModeToggled ? "Dark Mode" : "Light Mode" }
+												{ isDarkModeToggled ? "Dark Mode" : "Light Mode" }
 											</div>
 										:
 										null
 									}
-									<div className={`absolute left-1 top-1 ${ props.isDarkModeToggled ? "translate-x-full" : "" } transition w-6 h-6 p-1.5 rounded-full bg-white`} onClick={ props.handleToggleSwitch }>
+									<div className={`absolute left-1 top-1 ${ isDarkModeToggled ? "translate-x-full" : "" } transition w-6 h-6 p-1.5 rounded-full bg-white`} onClick={ handleToggleSwitch }>
 										{
-											props.isDarkModeToggled ? 
+											isDarkModeToggled ? 
 												<svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 text-gray-700" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" 
 												strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
 													<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
@@ -180,8 +183,8 @@ const Navigation = ( props ) => {
 								</div>
 							</label>
 						</div>
-						<button className="block lg:hidden mr-1 sm:mr-2 p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-300 dark:bg-gray-600" onClick={ props.handleNavMenuToggle }>
-							{ props.isNavMenuToggled ?
+						<button className="block lg:hidden mr-1 sm:mr-2 p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-300 dark:bg-gray-600" onClick={ handleNavMenuToggle }>
+							{ isNavMenuToggled ?
 								<svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-700 dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" 
 								strokeLinecap="round" strokeLinejoin="round">
 									<line x1="18" y1="6" x2="6" y2="18"></line>

@@ -1,21 +1,24 @@
+import React, { useContext } from "react";
+import { Context } from "../context/ContextAPI";
 import { motion } from "framer-motion"
 import ProjectsList from "../data/overview-project";
 import ExpertiseList from "../data/overview-expertise";
 import { Outlet, NavLink } from "react-router-dom";
 
 const Overview = (props) => {
+    const { isMobileDevice } = useContext(Context);
     return (
         <motion.div 
-            className={ props.isMobile ? 'pl-0 pb-10' : 'px-4 md:pl-8'}
+            className={ isMobileDevice ? 'pl-0 pb-10' : 'px-4 md:pl-8'}
             initial = {{ opacity: 0 }}
             animate = {{ opacity: 1 }}
             exit    = {{ opacity: 0 }}>
-            <div className={`block md:hidden ${props.isMobile ? 'mt-4' : 'mt-0'} mx-4 pb-5 px-1 border-b border-gray-200 dark:border-gray-600`}>
-                <h1 className="w-72 sm:w-full text-[1.5rem] md:text-xl text-gray-600 dark:text-blue4 font-bold sm:font-semibold">{props.isMobile && 'Profile '}Overview</h1>
+            <div className={`block md:hidden ${isMobileDevice ? 'mt-4' : 'mt-0'} mx-4 pb-5 px-1 border-b border-gray-200 dark:border-gray-600`}>
+                <h1 className="w-72 sm:w-full text-[1.5rem] md:text-xl text-gray-600 dark:text-blue4 font-bold sm:font-semibold">{isMobileDevice && 'Profile '}Overview</h1>
             </div>
             <div className="flex justify-between items center mt-10 px-4 sm:px-0">
                 <h1 className="ml-4 sm:ml-4 md:ml-0 text-[1.3rem] md:text-xl font-bold dark:md:font-semibold text-gray-700 dark:text-white">Projects Developed</h1>
-                <NavLink to="/projects" className="h-8 py-1.5 md:py-1 px-2 mr-4 sm:mr-4 md:mr-0 rounded text-sm border dark:border-0 border-gray-300 hover:border-blue4 dark:bg-gray-600 text-gray-600 hover:text-blue4 dark:text-white dark:hover:text-blue4 dark:text-white font-semibold dark:font-normal">
+                <NavLink to="/projects" className="h-8 sm:h-auto w-20 sm:w-auto py-1.5 md:py-1 px-2.5 sm:px-2 mr-4 sm:mr-4 md:mr-0 rounded text-sm border dark:border-0 border-gray-300 hover:border-blue4 dark:bg-gray-600 text-gray-600 hover:text-blue4 dark:text-white dark:hover:text-blue4 dark:text-white font-semibold dark:font-normal">
                     View All
                 </NavLink>
                 <Outlet/>
@@ -54,7 +57,7 @@ const Overview = (props) => {
                     </div>
                 </div>
                 {
-                    !props.isMobile ? <button onClick={() => { 
+                    !isMobileDevice ? <button onClick={() => { 
                         props.handleEventSelect(1) 
                         props.handleCurrentIndex(1)
                     }} className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">See educational history</button>
@@ -96,7 +99,7 @@ const Overview = (props) => {
                 }
                 </div>
                 {
-                    !props.isMobile ? <button onClick={() => {
+                    !isMobileDevice ? <button onClick={() => {
                         props.handleEventSelect(2) 
                         props.handleCurrentIndex(2)
                     }} className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">See all expertise</button>
@@ -124,7 +127,7 @@ const Overview = (props) => {
                     </div>
                 </div>
                 {
-                    !props.isMobile ? <button onClick={() => {
+                    !isMobileDevice ? <button onClick={() => {
                         props.handleEventSelect(3) 
                         props.handleCurrentIndex(3)
                     }} className="text-sm text-blue4 hover:underline hover:underline-offset-4 dark:text-white dark:hover:text-gray-300 dark:text-white font-semibold dark:font-normal">See work experience history</button>

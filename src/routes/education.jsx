@@ -1,9 +1,12 @@
+import React, { useContext } from "react";
+import { Context } from "../context/ContextAPI";
 import { motion } from "framer-motion"
 
-const Education = ( props ) => {
+const Education = () => {
+    const { isMobileDevice } = useContext(Context);
     return (  
         <motion.div 
-            className={`mb-12 ${props.isMobile ? 'pl-3' : 'pl-8'}`}
+            className={`mb-12 ${ isMobileDevice ? 'pl-3' : 'pl-8'}`}
             initial = {{ opacity: 0 }}
 			animate = {{ opacity: 1 }}
 			exit    = {{ opacity: 0 }}>
@@ -44,7 +47,7 @@ const Education = ( props ) => {
                     <h3 className="pl-4 sm:pl-0 text-[0.9rem] sm:text-sm font-medium text-gray-400 tracking-[0.03rem]">June 2001 - May 2004</h3>
                 </div>
             </div>
-            <div className={`relative ${props.isMobile ? 'mb-24' : ''} px-10 last:pb-0 after:content-[''] after:absolute after:top-2 after:left-[1.8rem] sm:after:left-[1.08rem] after:-z-1 
+            <div className={`relative ${ isMobileDevice ? 'mb-24' : ''} px-10 last:pb-0 after:content-[''] after:absolute after:top-2 after:left-[1.8rem] sm:after:left-[1.08rem] after:-z-1 
                         after:h-full after:w-0.5 after:bg-gray-200 dark:after:md:bg-gray-500`}>
                 <div className="space-y-1">
                     <h1 className="relative z-10 pl-4 sm:pl-0 text-[1.2rem] sm:text-lg font-semibold dark:font-medium text-gray-600 dark:text-white after:content-[''] after:absolute after:block after:top-2 

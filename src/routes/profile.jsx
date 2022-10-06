@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import profile from "../img/benj_profile.jpg"; 
 import Button from "../components/button";
 import Education from "./education";
@@ -8,6 +8,7 @@ import Experience from "./experience";
 import Expertise from "./expertise";
 import Overview from "./overview";
 import buttons from "../data/overview-buttons";
+import { Context } from "../context/ContextAPI";
 import { motion } from "framer-motion";
 import { NavLink, Outlet } from "react-router-dom";
 
@@ -19,6 +20,8 @@ const Profile = ( props ) => {
 	const [isProjects, setProjects] = useState(false)
 	const [isTools, setTools] = useState(false)
 	const [currentIndex, setcurrentIndex] = useState(0)
+
+	const { isMobileDevice } = useContext(Context)
 
 	useEffect(() => {
 		setcurrentIndex(currentIndex)
@@ -73,17 +76,17 @@ const Profile = ( props ) => {
 
 	return (  
 		<motion.div 
-			className={`container mx-auto ${ !props.isMobile ? 'mt-18' : 'mt-0 mb-10'} px-4 md:px-0 lg:px-8`}
+			className={`container mx-auto ${ !isMobileDevice ? 'mt-18' : 'mt-0 mb-10'} px-4 md:px-0 lg:px-8`}
 			initial = {{ opacity: 0 }}
 			animate = {{ opacity: 1 }}
 			exit    = {{ opacity: 0 }}>
-			<div className={`block md:flex md:justify-between ${ !props.isMobile ? 'mt-8 sm:mt-2 md:mt-8' : 'mt-0'}`}>
+			<div className={`block md:flex md:justify-between ${ !isMobileDevice ? 'mt-8 sm:mt-2 md:mt-8' : 'mt-0'}`}>
 				<div className="py-4 w-12/12 md:w-4/12">
 					<div className="block sm:flex sm:justify-between md:block">
 						{
-							!props.isMobile && 
+							!isMobileDevice && 
 							<div className="w-12/12 sm:w-5/12 md:w-full">
-								<div className={`flex justify-center items-center ${!props.isMobile && 'mt-12'}`}>
+								<div className={`flex justify-center items-center ${!isMobileDevice && 'mt-12'}`}>
 									<div className="p-1.5 border-4 border-blue4 rounded-full dark:bg-gray-700">
 										<div className="overflow-hidden h-40 w-40 rounded-full">
 											<img className="w-full" src={ profile } alt="Profile-Image" />
@@ -94,7 +97,7 @@ const Profile = ( props ) => {
 						}
 						
 						<div className="w-12/12 sm:w-7/12 md:w-full">
-							<div className={`flex justify-center items-center ${ !props.isMobile ? 'mt-10 sm:mt-10 md:mt-10' : 'mt-2'}`}>
+							<div className={`flex justify-center items-center ${ !isMobileDevice ? 'mt-10 sm:mt-10 md:mt-10' : 'mt-2'}`}>
 								<h2 className="uppercase md:normal-case text-gray-600 dark:text-white text-xl sm:text-2xl md:text-xl font-black dark:md:font-semibold tracking-[0.03rem]">Benigno E. Ambus Jr.</h2>
 							</div>
 							<div className="flex justify-center items-center mt-1">
@@ -138,7 +141,7 @@ const Profile = ( props ) => {
 						</div>
 					</div>
 					{
-						props.isMobile && <div className="flex md:hidden justify-center items-center mt-4">
+						isMobileDevice && <div className="flex md:hidden justify-center items-center mt-4">
 							<NavLink to="/overview" className="block md:hidden text-sm text-blue4 text-sm font-medium tracking-[0.03rem]">See profile overview</NavLink>
 						</div>
 					}
@@ -178,7 +181,7 @@ const Profile = ( props ) => {
 								})
 							}
 						</div>
-						{ !props.isMobile && isOverview && 
+						{ !isMobileDevice && isOverview && 
 							<Overview
 								handleEventSelect  = { eventSelect }
 								handleCurrentIndex = { setcurrentIndex }

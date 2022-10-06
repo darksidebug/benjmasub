@@ -1,11 +1,14 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
+import React, { useContext } from "react";
+import { Context } from "../context/ContextAPI";
 import ToolsList from "../data/tools"
 import { motion } from "framer-motion"
 
-const Tools = ( props ) => {
+const Tools = () => {
+    const { isMobileDevice } = useContext(Context);
     return (  
         <motion.div 
-            className={`mt-10 ${ props.isMobile ? 'mb-24' : ''} sm:mt-16`}
+            className={`mt-10 ${ isMobileDevice ? 'mb-24' : ''} sm:mt-16`}
             initial = {{ opacity: 0 }}
 			animate = {{ opacity: 1 }}
 			exit    = {{ opacity: 0 }}>
@@ -15,7 +18,7 @@ const Tools = ( props ) => {
                         <div className="flex justify-start md:justify-between items-center pb-5 px-1 border-b border-gray-200 dark:border-gray-600">
                             <h1 className="w-72 sm:w-full text-2xl md:text-3xl text-gray-600 dark:text-blue4 font-bold sm:font-semibold">
                             {
-                                props.isMobile ?
+                                isMobileDevice ?
                                 <>Development<br/> Tools</>
                                 :
                                 <>Development Tools</>

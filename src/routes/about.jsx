@@ -1,9 +1,12 @@
+import React, { useContext } from "react";
+import { Context } from "../context/ContextAPI";
 import { motion } from "framer-motion"
 
-const About = ( props ) => {
+const About = () => {
+    const { isMobileDevice } = useContext(Context);
     return (  
         <motion.div 
-            className={`container mx-auto px-8 md:px-6 mt-10 ${ props.isMobile ? 'mb-24' : ''} sm:mt-16`}
+            className={`container mx-auto px-8 md:px-6 mt-10 ${ isMobileDevice ? 'mb-24' : ''} sm:mt-16`}
             initial = {{ opacity: 0 }}
 			animate = {{ opacity: 1 }}
 			exit    = {{ opacity: 0 }}>

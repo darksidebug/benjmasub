@@ -1,10 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useContext } from "react";
+import { Context } from "../context/ContextAPI";
 import { motion } from "framer-motion"
 
-const Contact = ( props ) => {
+const Contact = () => {
+    const { isMobileDevice } = useContext(Context);
     return (  
         <motion.div 
-            className={`container mx-auto ${ !props.isMobile ? 'mt-8 md:mt-20' : 'mt-8'} mb-24 px-4 md:px-2 lg:px-8`}
+            className={`container mx-auto ${ !isMobileDevice ? 'mt-8 md:mt-20' : 'mt-8'} mb-24 px-4 md:px-2 lg:px-8`}
             initial = {{ opacity: 0 }}
 			animate = {{ opacity: 1 }}
 			exit    = {{ opacity: 0 }}>
@@ -13,7 +16,7 @@ const Contact = ( props ) => {
                     <div className="block sm:flex justify-between">
                         <div className="w-12/12 md:4/12 lg:6/12 md:pr-20 pb-6">
                             {
-                                !props.isMobile ?
+                                !isMobileDevice ?
                                 <h1 className="mb-8 text-blue4 text-3xl md:text-5xl font-bold">Let's talk about<br/> your project.</h1>
                                 :
                                 <h1 className="mb-8 text-blue4 text-3xl md:text-5xl font-bold">Let's talk about your project.</h1>

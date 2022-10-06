@@ -1,15 +1,18 @@
+import React, { useContext } from "react";
+import { Context } from "../context/ContextAPI";
 import ExpertiseList from "../data/expertise"
 import { motion } from "framer-motion"
 
-const Expertise = ( props ) => {
+const Expertise = () => {
+    const { isMobileDevice } = useContext(Context);
     return (  
         <motion.div 
-            className={ props.isMobile ? 'pl-3' : 'pl-8'}
+            className={ isMobileDevice ? 'pl-3' : 'pl-8'}
             initial = {{ opacity: 0 }}
 			animate = {{ opacity: 1 }}
 			exit    = {{ opacity: 0 }}>
             <h1 className="block mt-10 ml-6 sm:ml-0 text-[1.5rem] md:text-xl font-bold dark:md:font-semibold text-gray-600 dark:text-blue4">Knowledge and Expertise</h1>
-            <div className={`md:overflow-y-auto mt-6 ${ props.isMobile ? 'mb-24' : 'mb-12'} md:h-[80vh] scrollbar`}>
+            <div className={`md:overflow-y-auto mt-6 ${ isMobileDevice ? 'mb-24' : 'mb-12'} md:h-[80vh] scrollbar`}>
                 {
                     ExpertiseList.map((expertise, index) => {
                         return(

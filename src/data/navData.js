@@ -26,11 +26,16 @@ const NavData = [
     },
     {
         "id"  : 3,
+        "name": "UI Designs",
+        "link": "/designs"
+    },
+    {
+        "id"  : 4,
         "name": "About Me",
         "link": "/about"
     },
     {
-        "id"  : 4,
+        "id"  : 5,
         "name": "Contact Me",
         "link": "/contact"
     },
