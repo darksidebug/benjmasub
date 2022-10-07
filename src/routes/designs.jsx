@@ -11,8 +11,11 @@ const Designs = () => {
             animate = {{ opacity: 1 }}
             exit    = {{ opacity: 0 }}>
             <div className="container mx-auto px-4 lg:px-8">
-              <div className="flex justify-center items-center py-24 text-gray-700 dark:text-white">
-                Coming Soon ...
+              <div className="flex justify-center items-center pt-24 text-gray-700 dark:text-white">
+                <h3 className="text-3xl font-medium">UI Designs</h3>
+              </div>
+              <div className="flex justify-center items-center pt-2 pb-24 text-gray-700 dark:text-white">
+                <h5>Coming Soon ...</h5>
               </div>
             </div>
         </motion.div>
